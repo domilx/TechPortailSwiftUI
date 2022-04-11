@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  TempHomeView.swift
 //  Tech Portail
 //
 //  Created by Domenico Valentino on 2022-04-10.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TempHomeView: View {
     var body: some View {
-        LoginPageView()
+        Text("Temp Home View")
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct TempHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        TempHomeView()
     }
 }
