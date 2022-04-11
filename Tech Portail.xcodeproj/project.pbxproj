@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		206603CC28036E6500F4B6FB /* Tech_PortailApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206603CB28036E6500F4B6FB /* Tech_PortailApp.swift */; };
-		206603CE28036E6500F4B6FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206603CD28036E6500F4B6FB /* ContentView.swift */; };
 		206603D028036E6800F4B6FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 206603CF28036E6800F4B6FB /* Assets.xcassets */; };
 		206603D328036E6800F4B6FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 206603D228036E6800F4B6FB /* Preview Assets.xcassets */; };
+		841E0547280381F200207C59 /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E0546280381F200207C59 /* homeView.swift */; };
+		841E054928038B6700207C59 /* tabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E054828038B6700207C59 /* tabBarView.swift */; };
+		841E054B28039C1600207C59 /* eventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E054A28039C1600207C59 /* eventsView.swift */; };
+		841E054D28039C3200207C59 /* aboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841E054C28039C3200207C59 /* aboutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		206603C828036E6500F4B6FB /* Tech Portail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tech Portail.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		206603CB28036E6500F4B6FB /* Tech_PortailApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tech_PortailApp.swift; sourceTree = "<group>"; };
-		206603CD28036E6500F4B6FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		206603CF28036E6800F4B6FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		206603D228036E6800F4B6FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		841E0546280381F200207C59 /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
+		841E054828038B6700207C59 /* tabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tabBarView.swift; sourceTree = "<group>"; };
+		841E054A28039C1600207C59 /* eventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventsView.swift; sourceTree = "<group>"; };
+		841E054C28039C3200207C59 /* aboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				206603CB28036E6500F4B6FB /* Tech_PortailApp.swift */,
-				206603CD28036E6500F4B6FB /* ContentView.swift */,
+				841E0545280381D100207C59 /* Views */,
 				206603CF28036E6800F4B6FB /* Assets.xcassets */,
 				206603D128036E6800F4B6FB /* Preview Content */,
 			);
@@ -65,6 +71,17 @@
 				206603D228036E6800F4B6FB /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		841E0545280381D100207C59 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				841E054828038B6700207C59 /* tabBarView.swift */,
+				841E0546280381F200207C59 /* homeView.swift */,
+				841E054A28039C1600207C59 /* eventsView.swift */,
+				841E054C28039C3200207C59 /* aboutView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +154,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				206603CE28036E6500F4B6FB /* ContentView.swift in Sources */,
 				206603CC28036E6500F4B6FB /* Tech_PortailApp.swift in Sources */,
+				841E0547280381F200207C59 /* homeView.swift in Sources */,
+				841E054D28039C3200207C59 /* aboutView.swift in Sources */,
+				841E054928038B6700207C59 /* tabBarView.swift in Sources */,
+				841E054B28039C1600207C59 /* eventsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
