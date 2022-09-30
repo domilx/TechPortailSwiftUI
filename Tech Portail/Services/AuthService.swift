@@ -9,9 +9,25 @@ import Foundation
 import SwiftUI
 import Alamofire
 
+enum AuthenticationError: Error {
+    case invalidCredentials
+    case custom(errorMessage: String)
+}
+
+struct LoginRequestBody: Codable {
+    let email: String
+    let password: String
+}
+
+struct LoginResponse: Codable {
+    let token: String?
+    let message: String?
+    let success: Bool?
+}
+
 struct User: Codable {
-    let expiresIn: Int
-    let token, userID, userRole, userName: String
+    let expiresIn: Int?
+    let token, userID, userRole, userName: String?
 
     enum CodingKeys: String, CodingKey {
         case expiresIn, token
@@ -20,58 +36,73 @@ struct User: Codable {
     }
 }
 
-final class AuthService: ObservableObject {
-        
-    func loginUser(sendEmail: Binding<String>, sendPass: Binding<String>) {
-        
-        let params: Parameters = [
-                "email": sendEmail.wrappedValue,
-                "password": sendPass.wrappedValue
-            ]
-        print(params)
-        AF.request("http://techapi-env.eba-wuyzhh27.us-east-1.elasticbeanstalk.com/core/auth/login", method: .post, parameters: params, encoding: JSONEncoding.default, headers: nil).validate(statusCode: 200 ..< 299).responseData { response in
-            switch response.result {
-                case .success(let data):
-                    do {
-                        guard let jsonObject = try JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-                            print("Error: Cannot convert data to JSON object")
-                            return
-                        }
-                        guard let prettyJsonData = try? JSONSerialization.data(withJSONObject: jsonObject, options: .prettyPrinted) else {
-                            print("Error: Cannot convert JSON object to Pretty JSON data")
-                            return
-                        }
-                        guard let prettyPrintedJson = String(data: prettyJsonData, encoding: .utf8) else {
-                            print("Error: Could print JSON in String")
-                            return
-                        }
-                
-                        self.loginSuccess(jsonDataPretty: prettyPrintedJson)
-                    } catch {
-                        print("Error: Trying to convert JSON data to string")
-                        return
-                    }
-                    case .failure(let error):
-                        do {
-                            self.loginFailure(error: error)
-                        }
+let defaults = UserDefaults.standard
+
+class AuthService {
+    
+    var userInfo: User?
+
+    func login(email: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
+
+        guard let url = URL(string: "http://techapi-env.eba-wuyzhh27.us-east-1.elasticbeanstalk.com/core/auth/login") else {
+            completion(.failure(.custom(errorMessage: "URL is not correct")))
+            return
+        }
+
+        let body = LoginRequestBody(email: email, password: password)
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONEncoder().encode(body)
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+
+            guard let data = data, error == nil else {
+                completion(.failure(.custom(errorMessage: "No data")))
+                return
             }
-        }
+
+            try! JSONDecoder().decode(User.self, from: data)
+            guard let loginResponse = try? JSONDecoder().decode(User.self, from: data) else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+
+            guard let token = loginResponse.token else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            
+            guard let userName = loginResponse.userName else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+                    
+            guard let userId = loginResponse.userID else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
+            
+            
+            defaults.setValue(token, forKey: "jsonwebtoken")
+            defaults.setValue(userId, forKey: "userId")
+            defaults.setValue(userName, forKey: "userName")
+            
+            self.setUserData(loginResponse: loginResponse)
+            completion(.success(token))
+                    
+
+        }.resume()
+
     }
     
-    func loginFailure(error: AFError) {
-        print(error)
+    func setUserData (loginResponse: User) {
+        self.userInfo = loginResponse
     }
     
-    func loginSuccess(jsonDataPretty: String) {
-        do {
-            print(jsonDataPretty)
-            let userDataParse = Data(jsonDataPretty.utf8)
-            let userData = try JSONDecoder().decode(User.self, from: userDataParse)
-            print(userData)
-        } catch {
-            print(error)
-        }
+    func getUserData() -> User? {
+        print(userInfo)
+        return userInfo
     }
-    
 }
