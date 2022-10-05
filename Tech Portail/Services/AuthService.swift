@@ -85,9 +85,10 @@ class AuthService {
             }
             
             
-            defaults.setValue(token, forKey: "jsonwebtoken")
+            defaults.setValue(token, forKey: "token")
             defaults.setValue(userId, forKey: "userId")
             defaults.setValue(userName, forKey: "userName")
+            defaults.synchronize()
             
             self.setUserData(loginResponse: loginResponse)
             completion(.success(token))
@@ -102,7 +103,6 @@ class AuthService {
     }
     
     func getUserData() -> User? {
-        print(userInfo)
         return userInfo
     }
 }

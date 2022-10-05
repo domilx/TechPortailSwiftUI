@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20012B5028E759930032321E /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20012B4F28E759930032321E /* HomeContentView.swift */; };
 		20211FA228E396E200C55B5A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20211FA128E396E200C55B5A /* AuthService.swift */; };
 		202FAE0028E6332E0016ACFB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FADFF28E6332E0016ACFB /* UserModel.swift */; };
+		205DF66828ECC0D600F493A5 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205DF66728ECC0D600F493A5 /* EventService.swift */; };
+		205DF66A28ECF9C500F493A5 /* SettingsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205DF66928ECF9C500F493A5 /* SettingsContentView.swift */; };
 		206603CC28036E6500F4B6FB /* Tech_PortailApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206603CB28036E6500F4B6FB /* Tech_PortailApp.swift */; };
 		206603CE28036E6500F4B6FB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206603CD28036E6500F4B6FB /* ContentView.swift */; };
 		206603D028036E6800F4B6FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 206603CF28036E6800F4B6FB /* Assets.xcassets */; };
@@ -20,8 +23,11 @@
 
 /* Begin PBXFileReference section */
 		09873C172825FB4765F2A32E /* Pods_Tech_Portail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tech_Portail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20012B4F28E759930032321E /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
 		20211FA128E396E200C55B5A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		202FADFF28E6332E0016ACFB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		205DF66728ECC0D600F493A5 /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
+		205DF66928ECF9C500F493A5 /* SettingsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentView.swift; sourceTree = "<group>"; };
 		206603C828036E6500F4B6FB /* Tech Portail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tech Portail.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		206603CB28036E6500F4B6FB /* Tech_PortailApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tech_PortailApp.swift; sourceTree = "<group>"; };
 		206603CD28036E6500F4B6FB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				20211FA128E396E200C55B5A /* AuthService.swift */,
+				205DF66728ECC0D600F493A5 /* EventService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -84,7 +91,7 @@
 			children = (
 				202FADFE28E633100016ACFB /* Models */,
 				20211FA028E396CC00C55B5A /* Services */,
-				2071969D28BAEED9000E3E0E /* Login */,
+				2071969D28BAEED9000E3E0E /* Views */,
 				206603CB28036E6500F4B6FB /* Tech_PortailApp.swift */,
 				206603CD28036E6500F4B6FB /* ContentView.swift */,
 				206603CF28036E6800F4B6FB /* Assets.xcassets */,
@@ -102,12 +109,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		2071969D28BAEED9000E3E0E /* Login */ = {
+		2071969D28BAEED9000E3E0E /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				2071969E28BAEF05000E3E0E /* LoginContentView.swift */,
+				20012B4F28E759930032321E /* HomeContentView.swift */,
+				205DF66928ECF9C500F493A5 /* SettingsContentView.swift */,
 			);
-			path = Login;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5B549C77D1CFD7F4581774BF /* View Models */ = {
@@ -249,9 +258,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205DF66828ECC0D600F493A5 /* EventService.swift in Sources */,
 				206603CE28036E6500F4B6FB /* ContentView.swift in Sources */,
 				206603CC28036E6500F4B6FB /* Tech_PortailApp.swift in Sources */,
+				205DF66A28ECF9C500F493A5 /* SettingsContentView.swift in Sources */,
 				2071969F28BAEF05000E3E0E /* LoginContentView.swift in Sources */,
+				20012B5028E759930032321E /* HomeContentView.swift in Sources */,
 				202FAE0028E6332E0016ACFB /* UserModel.swift in Sources */,
 				20211FA228E396E200C55B5A /* AuthService.swift in Sources */,
 				5B549B25100D218A8739FF92 /* LoginViewModel.swift in Sources */,

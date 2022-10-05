@@ -16,16 +16,6 @@ struct LoginContentView: View {
     var body: some View {
 
         VStack {
-            HStack{
-                Spacer()
-                VStack{
-                    Image(systemName: $LoginSystem.isAuthenticated.wrappedValue ? "lock.fill": "lock.open")
-                        .padding(.bottom)
-                    
-                }
-                Spacer()
-            }
-            .background($LoginSystem.isAuthenticated.wrappedValue ? Color.green: Color.red)
             Spacer().frame(height: 30)
             VStack{
                 Text("Tech Portail")
@@ -35,7 +25,7 @@ struct LoginContentView: View {
                 Image("logo")
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 200, height: 70)
+                    .frame(width: 150, height: 70)
             }
             
             TextField("Email", text: $LoginSystem.email).padding(.top, 70.0).frame(width: 300)
@@ -44,11 +34,6 @@ struct LoginContentView: View {
                     Spacer()
                     Button("Login") {
                         LoginSystem.login()
-                        print(defaults.value(forKey: "jsonwebtoken"))
-                    }
-                    Spacer()
-                    Button("Signout") {
-                        LoginSystem.signout()
                     }
                     Spacer()
                 }
