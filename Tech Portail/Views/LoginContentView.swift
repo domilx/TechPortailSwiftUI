@@ -11,8 +11,6 @@ struct LoginContentView: View {
 
     @StateObject private var LoginSystem = LoginViewModel()
     
-    let defaults = UserDefaults.standard
-    
     var body: some View {
 
         VStack {

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct SettingsContentView: View {
     @StateObject private var LoginSystem = LoginViewModel()
-    
+    @AppStorage("isMentor") var isMentor: Bool = false
+    @AppStorage("userId") var userId: String = "null"
+
     var body: some View {
         NavigationView {
             VStack{
@@ -23,6 +25,10 @@ struct SettingsContentView: View {
                         }) {
                             Text("Log Out & Clear Cache")
                         }
+                    }
+                    Section(header: Text("Debug Info")) {
+                        Text($isMentor.wrappedValue ? "User Is Mentor": "User Is Student")
+                        Text("User Id: "+$userId.wrappedValue)
                     }
                 }
                 Text("iOS App Written by:").foregroundColor(.gray).font(.caption)

@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var LoginSystem = LoginViewModel()
-    @AppStorage("token") var token: String = "nil"
+    @AppStorage("isLoggedIn") var loggedIn: Bool = false
     
     var body: some View {
-        if token == "nil" {
+        if !self.loggedIn {
             LoginContentView()
         } else {
             HomeContentView()

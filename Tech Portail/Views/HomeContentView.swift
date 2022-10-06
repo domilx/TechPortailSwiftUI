@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct HomeContentView: View {
-    @AppStorage("userName") var userName: String = "Loading..."
-    @AppStorage("userId") var userId: String = "Loading..."
-    @AppStorage("token") var token: String = "Loading..."
+    @AppStorage("token") var token: String = "null"
+    @AppStorage("userName") var userName: String = "null"
+    @AppStorage("userId") var userId: String = "null"
+    @AppStorage("isLoggedIn") var loggedIn: Bool = false
+    @AppStorage("isMentor") var isMentor: Bool = false
     
     var body: some View {
         NavigationView {
@@ -23,9 +25,11 @@ struct HomeContentView: View {
 }
 
 struct HomeView: View {
-    @AppStorage("userName") var userName: String = "Loading..."
-    @AppStorage("userId") var userId: String = "Loading..."
-    @AppStorage("token") var token: String = "Loading..."
+    @AppStorage("token") var token: String = "null"
+    @AppStorage("userName") var userName: String = "null"
+    @AppStorage("userId") var userId: String = "null"
+    @AppStorage("isLoggedIn") var loggedIn: Bool = false
+    @AppStorage("isMentor") var isMentor: Bool = false
     
     var body: some View {
         VStack{
@@ -34,6 +38,10 @@ struct HomeView: View {
                     .font(.title2)
                     .padding(.leading, 30.0)
                 Spacer()
+            }
+            Spacer()
+            Button("Get events") {
+                EventService().getEvents()
             }
             Spacer()
             HStack{

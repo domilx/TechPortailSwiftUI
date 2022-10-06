@@ -9,6 +9,12 @@ class LoginViewModel: ObservableObject {
 
     var email: String = ""
     var password: String = ""
+    
+    @AppStorage("token") var token: String = "null"
+    @AppStorage("userName") var userName: String = "null"
+    @AppStorage("userId") var userId: String = "null"
+    @AppStorage("isLoggedIn") var loggedIn: Bool = false
+    @AppStorage("isMentor") var isMentor: Bool = false
 
     func login() {
 
@@ -24,8 +30,11 @@ class LoginViewModel: ObservableObject {
 
     func signout() {
 
-        let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "token")
+        self.loggedIn = false
+        self.userName = "null"
+        self.userId = "null"
+        self.userName = "null"
+        self.isMentor = false
 
     }
 }

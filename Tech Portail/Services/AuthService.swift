@@ -9,38 +9,13 @@ import Foundation
 import SwiftUI
 import Alamofire
 
-enum AuthenticationError: Error {
-    case invalidCredentials
-    case custom(errorMessage: String)
-}
-
-struct LoginRequestBody: Codable {
-    let email: String
-    let password: String
-}
-
-struct LoginResponse: Codable {
-    let token: String?
-    let message: String?
-    let success: Bool?
-}
-
-struct User: Codable {
-    let expiresIn: Int?
-    let token, userID, userRole, userName: String?
-
-    enum CodingKeys: String, CodingKey {
-        case expiresIn, token
-        case userID = "userId"
-        case userRole, userName
-    }
-}
-
-let defaults = UserDefaults.standard
-
 class AuthService {
     
-    var userInfo: User?
+    @AppStorage("token") var token: String = "null"
+    @AppStorage("userName") var userNameS: String = "null"
+    @AppStorage("userId") var userIdS: String = "null"
+    @AppStorage("isMentor") var isMentor: Bool = false
+    @AppStorage("isLoggedIn") var loggedInS: Bool = false
 
     func login(email: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
 
@@ -63,8 +38,8 @@ class AuthService {
                 return
             }
 
-            try! JSONDecoder().decode(User.self, from: data)
-            guard let loginResponse = try? JSONDecoder().decode(User.self, from: data) else {
+            //try! JSONDecoder().decode(User.self, from: data)
+            guard let loginResponse = try? JSONDecoder().decode(UserModel.self, from: data) else {
                 completion(.failure(.invalidCredentials))
                 return
             }
@@ -84,25 +59,26 @@ class AuthService {
                 return
             }
             
+            guard let userRole = loginResponse.userRole else {
+                completion(.failure(.invalidCredentials))
+                return
+            }
             
-            defaults.setValue(token, forKey: "token")
-            defaults.setValue(userId, forKey: "userId")
-            defaults.setValue(userName, forKey: "userName")
-            defaults.synchronize()
             
-            self.setUserData(loginResponse: loginResponse)
+            self.loggedInS = true
+            self.userNameS = userName
+            self.userIdS = userId
+            self.userNameS = userName
+            if(userRole == "eleve"){
+                self.isMentor = false
+            } else if(userRole == "mentor") {
+                self.isMentor = true
+            }
+            
             completion(.success(token))
                     
 
         }.resume()
 
-    }
-    
-    func setUserData (loginResponse: User) {
-        self.userInfo = loginResponse
-    }
-    
-    func getUserData() -> User? {
-        return userInfo
     }
 }
