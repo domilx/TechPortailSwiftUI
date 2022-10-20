@@ -35,6 +35,7 @@ struct HomeView: View {
                 Spacer()
             }
             Spacer()
+            ListView()
             Spacer()
             HStack{
                 Spacer()
