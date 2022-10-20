@@ -11,7 +11,7 @@ import Alamofire
 
 class AuthService {
     
-    @AppStorage("token") var token: String = "null"
+    @AppStorage("token") var tokenS: String = "null"
     @AppStorage("userName") var userNameS: String = "null"
     @AppStorage("userId") var userIdS: String = "null"
     @AppStorage("isMentor") var isMentor: Bool = false
@@ -37,8 +37,7 @@ class AuthService {
                 completion(.failure(.custom(errorMessage: "No data")))
                 return
             }
-
-            //try! JSONDecoder().decode(User.self, from: data)
+            
             guard let loginResponse = try? JSONDecoder().decode(UserModel.self, from: data) else {
                 completion(.failure(.invalidCredentials))
                 return
@@ -69,6 +68,7 @@ class AuthService {
             self.userNameS = userName
             self.userIdS = userId
             self.userNameS = userName
+            self.tokenS = token
             if(userRole == "eleve"){
                 self.isMentor = false
             } else if(userRole == "mentor") {

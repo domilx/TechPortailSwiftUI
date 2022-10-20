@@ -31,10 +31,10 @@ class LoginViewModel: ObservableObject {
     func signout() {
 
         self.loggedIn = false
+        self.isMentor = false
         self.userName = "null"
         self.userId = "null"
         self.userName = "null"
-        self.isMentor = false
 
     }
 }

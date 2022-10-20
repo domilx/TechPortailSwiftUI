@@ -8,11 +8,6 @@
 import SwiftUI
 
 struct HomeContentView: View {
-    @AppStorage("token") var token: String = "null"
-    @AppStorage("userName") var userName: String = "null"
-    @AppStorage("userId") var userId: String = "null"
-    @AppStorage("isLoggedIn") var loggedIn: Bool = false
-    @AppStorage("isMentor") var isMentor: Bool = false
     
     var body: some View {
         NavigationView {
@@ -25,24 +20,21 @@ struct HomeContentView: View {
 }
 
 struct HomeView: View {
-    @AppStorage("token") var token: String = "null"
     @AppStorage("userName") var userName: String = "null"
-    @AppStorage("userId") var userId: String = "null"
-    @AppStorage("isLoggedIn") var loggedIn: Bool = false
-    @AppStorage("isMentor") var isMentor: Bool = false
-    
+    @StateObject var eventViewModel = EventViewModel()
+
     var body: some View {
         VStack{
             HStack{
                 Text("Welcome, \(userName.components(separatedBy: " ").first ?? "")!")
                     .font(.title2)
                     .padding(.leading, 30.0)
+                    .onAppear(){
+                        eventViewModel.fetchEventsList()
+                    }
                 Spacer()
             }
             Spacer()
-            Button("Get events") {
-                EventService().getEvents()
-            }
             Spacer()
             HStack{
                 Spacer()
@@ -52,6 +44,21 @@ struct HomeView: View {
                 .padding([.bottom, .trailing])
             }
         }
+    }
+}
+
+struct ListView: View {
+    //on "subscribe" au event view model
+    @StateObject var eventViewModel = EventViewModel()
+
+    var body: some View {
+        Text("Liste de events")
+            .onAppear(){
+                //quand le text est render on fetch la liste de events avec le EventViewModel
+                eventViewModel.fetchEventsList()
+            }
+        //Display ce qu'on veut et le ?? nil est un temp value pour le temp qu'il download le data
+        Text(eventViewModel.events?.events?.first?.name ?? "nil")
     }
 }
 
