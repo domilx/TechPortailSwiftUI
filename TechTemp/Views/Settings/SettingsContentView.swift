@@ -25,6 +25,7 @@ struct SettingsContentView: View {
             LoginSystem.signout()
           }) {
             Text("Log Out & Clear Cache")
+                  .foregroundColor(.red)
          }
         }
         Section(header: Text("Debug Info")) {

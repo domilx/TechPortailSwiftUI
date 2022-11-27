@@ -10,8 +10,8 @@ import SwiftUI
 
 class EventViewModel: ObservableObject {
     @Published var events: Events?
-    func fetchEventsList(){
-        EventService().getHttpEvents(limit: 5, future: false, completion: { (events) in
+    func fetchEventsList(isFuture: Bool, limit: Int){
+        EventService().getHttpEvents(limit: limit, future: isFuture, completion: { (events) in
             self.events = events
         })
     }

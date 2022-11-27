@@ -6,12 +6,14 @@
 //
 import Foundation
 import SwiftUI
+import EventKit
 
 struct ContentView: View {
     @StateObject private var LoginSystem = LoginViewModel()
     @AppStorage("isLoggedIn") var loggedIn: Bool = false
     
     var body: some View {
+        
         if !self.loggedIn {
             LoginContentView()
         } else {

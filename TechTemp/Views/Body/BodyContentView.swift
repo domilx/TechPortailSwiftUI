@@ -12,19 +12,10 @@ struct BodyContentView: View {
         UITabBar.appearance().backgroundColor = UIColor(named: "techGrey")
    }
     var body: some View {
-        VStack {
-            HStack {
-                Text("Team 3990")
-                    .font(.system(size: 35))
-                    .fontWeight(.bold)
-                    .multilineTextAlignment(.leading)
-                    .padding()
-                    .frame(width: 500.0, height: 40.0)
                 
-            }.background(Color(UIColor(named: "techOrange")!))
                 
 
-            TabView {
+                TabView {
                     HomeContentView()
                         .tabItem {
                             Image(systemName: "house.circle")
@@ -34,15 +25,14 @@ struct BodyContentView: View {
                         .tabItem {
                             Image(systemName: "calendar.circle")
                             Text("Calendar")
-                    }
+                        }
                     SettingsContentView()
                         .tabItem {
                             Image(systemName: "gear.circle")
                             Text("Settings")
-                    }
+                        }
+                }
             }
-        }
-    }
 }
 
 struct BodyContentView_Previews: PreviewProvider {

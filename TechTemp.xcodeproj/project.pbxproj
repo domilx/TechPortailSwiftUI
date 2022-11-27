@@ -22,6 +22,11 @@
 		206603D328036E6800F4B6FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 206603D228036E6800F4B6FB /* Preview Assets.xcassets */; };
 		2071969F28BAEF05000E3E0E /* LoginContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2071969E28BAEF05000E3E0E /* LoginContentView.swift */; };
 		20C43A3328F9E18D0088D1A9 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C43A3228F9E18D0088D1A9 /* EventViewModel.swift */; };
+		20DFB0BE2933FBC500E53E25 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0BD2933FBC500E53E25 /* NewsModel.swift */; };
+		20DFB0C22933FC3300E53E25 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0C12933FC3300E53E25 /* NewsService.swift */; };
+		20DFB0C42933FCBB00E53E25 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0C32933FCBB00E53E25 /* NewsViewModel.swift */; };
+		20DFB0C72933FF6B00E53E25 /* NewsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0C62933FF6B00E53E25 /* NewsCardView.swift */; };
+		20F4A983290E1D1000D660E5 /* EventSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F4A982290E1D1000D660E5 /* EventSheetView.swift */; };
 		5B549B25100D218A8739FF92 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5498E624B5FCB4E1D39ABE /* LoginViewModel.swift */; };
 		8CFF6B7902932FE69A50739A /* Pods_TechTemp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25E05092E69E6DCD42E5F16F /* Pods_TechTemp.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +48,11 @@
 		206603D228036E6800F4B6FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2071969E28BAEF05000E3E0E /* LoginContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContentView.swift; sourceTree = "<group>"; };
 		20C43A3228F9E18D0088D1A9 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		20DFB0BD2933FBC500E53E25 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		20DFB0C12933FC3300E53E25 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
+		20DFB0C32933FCBB00E53E25 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
+		20DFB0C62933FF6B00E53E25 /* NewsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardView.swift; sourceTree = "<group>"; };
+		20F4A982290E1D1000D660E5 /* EventSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSheetView.swift; sourceTree = "<group>"; };
 		25E05092E69E6DCD42E5F16F /* Pods_TechTemp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechTemp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B5498E624B5FCB4E1D39ABE /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		7CEB0DB558152DD8AD4DA33D /* Pods-TechTemp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechTemp.release.xcconfig"; path = "Target Support Files/Pods-TechTemp/Pods-TechTemp.release.xcconfig"; sourceTree = "<group>"; };
@@ -61,11 +71,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20111343292AD1520025FA2A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2071969E28BAEF05000E3E0E /* LoginContentView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		20111344292AD1700025FA2A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				20012B4F28E759930032321E /* HomeContentView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		20111345292AD1830025FA2A /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				202AE97C2901DD080038D52F /* EventCardView.swift */,
+				20F4A982290E1D1000D660E5 /* EventSheetView.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		20111346292AD18F0025FA2A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				205DF66928ECF9C500F493A5 /* SettingsContentView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		20111347292AD1980025FA2A /* Body */ = {
+			isa = PBXGroup;
+			children = (
+				202AE9782901BB7A0038D52F /* BodyContentView.swift */,
+			);
+			path = Body;
+			sourceTree = "<group>";
+		};
+		20111348292AD1A10025FA2A /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				202AE97A2901BCE60038D52F /* CalendarContentView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
 		20211FA028E396CC00C55B5A /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				20211FA128E396E200C55B5A /* AuthService.swift */,
 				205DF66728ECC0D600F493A5 /* EventService.swift */,
+				20DFB0C12933FC3300E53E25 /* NewsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -75,6 +135,7 @@
 			children = (
 				202FADFF28E6332E0016ACFB /* UserModel.swift */,
 				2012021C28F9F83100805925 /* EventsModel.swift */,
+				20DFB0BD2933FBC500E53E25 /* NewsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -100,6 +161,7 @@
 		206603CA28036E6500F4B6FB /* TechTemp */ = {
 			isa = PBXGroup;
 			children = (
+				5B549C77D1CFD7F4581774BF /* View Models */,
 				202FADFE28E633100016ACFB /* Models */,
 				20211FA028E396CC00C55B5A /* Services */,
 				2071969D28BAEED9000E3E0E /* Views */,
@@ -107,7 +169,6 @@
 				206603CD28036E6500F4B6FB /* ContentView.swift */,
 				206603CF28036E6800F4B6FB /* Assets.xcassets */,
 				206603D128036E6800F4B6FB /* Preview Content */,
-				5B549C77D1CFD7F4581774BF /* View Models */,
 			);
 			path = TechTemp;
 			sourceTree = "<group>";
@@ -123,14 +184,23 @@
 		2071969D28BAEED9000E3E0E /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2071969E28BAEF05000E3E0E /* LoginContentView.swift */,
-				20012B4F28E759930032321E /* HomeContentView.swift */,
-				205DF66928ECF9C500F493A5 /* SettingsContentView.swift */,
-				202AE9782901BB7A0038D52F /* BodyContentView.swift */,
-				202AE97A2901BCE60038D52F /* CalendarContentView.swift */,
-				202AE97C2901DD080038D52F /* EventCardView.swift */,
+				20DFB0C52933FF4F00E53E25 /* News */,
+				20111348292AD1A10025FA2A /* Calendar */,
+				20111347292AD1980025FA2A /* Body */,
+				20111346292AD18F0025FA2A /* Settings */,
+				20111345292AD1830025FA2A /* Event */,
+				20111344292AD1700025FA2A /* Home */,
+				20111343292AD1520025FA2A /* Login */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		20DFB0C52933FF4F00E53E25 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				20DFB0C62933FF6B00E53E25 /* NewsCardView.swift */,
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 		5B549C77D1CFD7F4581774BF /* View Models */ = {
@@ -138,6 +208,7 @@
 			children = (
 				5B5498E624B5FCB4E1D39ABE /* LoginViewModel.swift */,
 				20C43A3228F9E18D0088D1A9 /* EventViewModel.swift */,
+				20DFB0C32933FCBB00E53E25 /* NewsViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -278,14 +349,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				205DF66828ECC0D600F493A5 /* EventService.swift in Sources */,
+				20DFB0C42933FCBB00E53E25 /* NewsViewModel.swift in Sources */,
+				20DFB0C22933FC3300E53E25 /* NewsService.swift in Sources */,
+				20F4A983290E1D1000D660E5 /* EventSheetView.swift in Sources */,
 				206603CE28036E6500F4B6FB /* ContentView.swift in Sources */,
 				206603CC28036E6500F4B6FB /* TechTempApp.swift in Sources */,
 				205DF66A28ECF9C500F493A5 /* SettingsContentView.swift in Sources */,
 				2071969F28BAEF05000E3E0E /* LoginContentView.swift in Sources */,
 				20012B5028E759930032321E /* HomeContentView.swift in Sources */,
 				202FAE0028E6332E0016ACFB /* UserModel.swift in Sources */,
+				20DFB0BE2933FBC500E53E25 /* NewsModel.swift in Sources */,
 				202AE97D2901DD080038D52F /* EventCardView.swift in Sources */,
 				202AE97B2901BCE60038D52F /* CalendarContentView.swift in Sources */,
+				20DFB0C72933FF6B00E53E25 /* NewsCardView.swift in Sources */,
 				20211FA228E396E200C55B5A /* AuthService.swift in Sources */,
 				202AE9792901BB7A0038D52F /* BodyContentView.swift in Sources */,
 				20C43A3328F9E18D0088D1A9 /* EventViewModel.swift in Sources */,
@@ -347,7 +423,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -402,7 +478,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				"INFOPLIST_FILE[sdk=*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -425,12 +501,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TechTemp-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,12 +534,13 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TechTemp-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
