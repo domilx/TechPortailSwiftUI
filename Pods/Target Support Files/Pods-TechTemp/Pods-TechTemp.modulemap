@@ -1,6 +1,0 @@
-framework module Pods_TechTemp {
-  umbrella header "Pods-TechTemp-umbrella.h"
-
-  export *
-  module * { export * }
-}
