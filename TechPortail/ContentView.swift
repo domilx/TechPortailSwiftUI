@@ -19,7 +19,7 @@ struct ContentView: View {
         
         if (!self.loggedIn || !isValid) {
             LoginContentView().onAppear{
-                isExp(isValid: isValid, token: token)
+                isExp(isValid: isValid)
                 keep = true
             }
         }
@@ -30,10 +30,10 @@ struct ContentView: View {
         }
     }
     
-    func isExp(isValid: Bool, token: String) {
+    func isExp(isValid: Bool) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             print("checking")
-            if(token != "null" && !isValid) {
+            if(token != "null") {
                 var payload64 = token.components(separatedBy: ".")[1]
                 while payload64.count % 4 != 0 {
                         payload64 += "="
@@ -47,17 +47,15 @@ struct ContentView: View {
                 let isValid = expDate.compare(Date()) == .orderedDescending
                 
                 self.isValid = isValid
+                print(self.isValid)
             }
             if(keep) {
-                isExp(isValid: isValid, token: token)
+                isExp(isValid: isValid)
             }
             
         }
     }
 }
-
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
