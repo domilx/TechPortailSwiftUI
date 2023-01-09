@@ -30,6 +30,7 @@
 		20DFB0C72933FF6B00E53E25 /* NewsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0C62933FF6B00E53E25 /* NewsCardView.swift */; };
 		20DFB0C92934076D00E53E25 /* PresenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0C82934076D00E53E25 /* PresenceService.swift */; };
 		20DFB0CB2934084000E53E25 /* PresenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0CA2934084000E53E25 /* PresenceModel.swift */; };
+		20E8E144296B43FD007DE183 /* NewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E8E143296B43FD007DE183 /* NewEvent.swift */; };
 		20F4A983290E1D1000D660E5 /* EventSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F4A982290E1D1000D660E5 /* EventSheetView.swift */; };
 		5B549B25100D218A8739FF92 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5498E624B5FCB4E1D39ABE /* LoginViewModel.swift */; };
 		6B793D2BCD829DAB0D641D68 /* Pods_TechPortail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CE2BF104E9D8C1512F08F2 /* Pods_TechPortail.framework */; };
@@ -60,6 +61,7 @@
 		20DFB0C62933FF6B00E53E25 /* NewsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardView.swift; sourceTree = "<group>"; };
 		20DFB0C82934076D00E53E25 /* PresenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceService.swift; sourceTree = "<group>"; };
 		20DFB0CA2934084000E53E25 /* PresenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceModel.swift; sourceTree = "<group>"; };
+		20E8E143296B43FD007DE183 /* NewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEvent.swift; sourceTree = "<group>"; };
 		20F4A982290E1D1000D660E5 /* EventSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSheetView.swift; sourceTree = "<group>"; };
 		5B5498E624B5FCB4E1D39ABE /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		78CE2BF104E9D8C1512F08F2 /* Pods_TechPortail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechPortail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +206,7 @@
 		2071969D28BAEED9000E3E0E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				20E8E142296B43E5007DE183 /* CreateEvent */,
 				20DFB0C52933FF4F00E53E25 /* News */,
 				20111348292AD1A10025FA2A /* Calendar */,
 				20111347292AD1980025FA2A /* Body */,
@@ -221,6 +224,14 @@
 				20DFB0C62933FF6B00E53E25 /* NewsCardView.swift */,
 			);
 			path = News;
+			sourceTree = "<group>";
+		};
+		20E8E142296B43E5007DE183 /* CreateEvent */ = {
+			isa = PBXGroup;
+			children = (
+				20E8E143296B43FD007DE183 /* NewEvent.swift */,
+			);
+			path = CreateEvent;
 			sourceTree = "<group>";
 		};
 		5B549C77D1CFD7F4581774BF /* View Models */ = {
@@ -376,6 +387,7 @@
 				202AE9792901BB7A0038D52F /* BodyContentView.swift in Sources */,
 				20C43A3328F9E18D0088D1A9 /* EventViewModel.swift in Sources */,
 				2012021D28F9F83100805925 /* EventsModel.swift in Sources */,
+				20E8E144296B43FD007DE183 /* NewEvent.swift in Sources */,
 				20DFB0C92934076D00E53E25 /* PresenceService.swift in Sources */,
 				5B549B25100D218A8739FF92 /* LoginViewModel.swift in Sources */,
 			);

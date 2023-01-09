@@ -34,10 +34,10 @@ struct LoginContentView: View {
                         .padding(.vertical, 16)
                         .frame(maxWidth: .infinity)
                         .clipped()
-                        .foregroundColor(Color(.systemBackground))
+                        .foregroundColor(Color(.gray))
                         .background {
                             RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(.secondary.opacity(0.8))
+                                .fill(.gray.opacity(0.5))
                         }
                         Spacer()
                     }
@@ -107,7 +107,7 @@ struct LoginContentView: View {
                     .foregroundColor(Color(.systemBackground))
                     .background {
                         RoundedRectangle(cornerRadius: 10, style: .continuous)
-                            .fill(Color(UIColor.black))
+                            .fill(Color(UIColor.label))
                     }
                 }
                 .alert(isPresented: $didFail) {

@@ -10,6 +10,8 @@ import SwiftUI
 struct CalendarContentView: View {
     @StateObject var eventViewModelFuture = EventViewModel()
     @StateObject var eventViewModelPast = EventViewModel()
+    @AppStorage("isMentor") var isMentor: Bool = false
+    @State private var showingSheet = false
 
     var body: some View {
         VStack{
@@ -20,6 +22,29 @@ struct CalendarContentView: View {
                         .fontWeight(.heavy)
                         .padding()
                     Spacer()
+                    Menu {
+                        Button {
+                            eventViewModelFuture.fetchEventsList(isFuture: true, limit: 20)
+                            eventViewModelPast.fetchEventsList(isFuture: false, limit: 20)
+                        } label: {
+                            Text("Refresh")
+                            Image(systemName: "arrow.counterclockwise")
+                        }
+                        if(isMentor){
+                            Button {
+                                showingSheet.toggle()
+                            } label: {
+                                Text("New event")
+                                Image(systemName: "plus")
+                            }
+                        }
+                    } label: {
+                         Text("More")
+                         Image(systemName: "line.3.horizontal.decrease.circle")
+                    }
+                    .padding()
+                    .font(.title3)
+                    .fontWeight(.semibold)
                 }
                 .padding(.top, 10)
                 Divider()
@@ -61,6 +86,11 @@ struct CalendarContentView: View {
                         .padding(.vertical, 5)
                 }
             }
+        }
+        .sheet(isPresented: $showingSheet) {
+            NewEvent()
+                .presentationDetents([.large])
+                .presentationDragIndicator(.automatic)
         }
     }
 }

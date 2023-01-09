@@ -48,7 +48,7 @@ struct EventCardView: View {
             }
         }
         .font(.body.weight(.medium))
-        .foregroundColor(Color("primary"))
+        .foregroundColor(Color(UIColor.white))
         .padding(.vertical, 16)
         .padding(.horizontal, 20)
         .frame(maxWidth: .infinity)

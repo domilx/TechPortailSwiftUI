@@ -21,6 +21,7 @@ struct HomeView: View {
     @AppStorage("userName") var userName: String = "null"
     @StateObject var eventViewModel = EventViewModel()
     @StateObject var newsViewModel = NewsViewModel()
+    
 
     var body: some View {
         ScrollView{
