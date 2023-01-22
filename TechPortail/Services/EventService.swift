@@ -13,7 +13,7 @@ class EventService {
     @AppStorage("token") var token: String = "null"
     
     func getHttpEvents(limit: Int, future: Bool, completion:@escaping (Events?) -> ()) {
-        guard let url = URL(string: "http://techapi-env.eba-wuyzhh27.us-east-1.elasticbeanstalk.com/portail/event?limit="+String(limit)+"&future=" + String(future)) else { return }
+        guard let url = URL(string: "http://api-env.eba-k3tngf8v.us-east-1.elasticbeanstalk.com/portail/event?limit="+String(limit)+"&future=" + String(future)) else { return }
         
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(token)",

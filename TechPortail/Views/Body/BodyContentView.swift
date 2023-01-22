@@ -21,10 +21,10 @@ struct BodyContentView: View {
                             Image(systemName: "house.circle")
                             Text("Home")
                         }
-                    CalendarContentView()
+                    AgendaContentView()
                         .tabItem {
                             Image(systemName: "calendar.circle")
-                            Text("Calendar")
+                            Text("Agenda")
                         }
                     SettingsContentView()
                         .tabItem {

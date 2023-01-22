@@ -19,7 +19,7 @@ class AuthService {
 
     func login(email: String, password: String, completion: @escaping (Result<String, AuthenticationError>) -> Void) {
 
-        guard let url = URL(string: "http://techapi-env.eba-wuyzhh27.us-east-1.elasticbeanstalk.com/core/auth/login") else {
+        guard let url = URL(string: "http://api-env.eba-k3tngf8v.us-east-1.elasticbeanstalk.com/core/auth/login") else {
             completion(.failure(.custom(errorMessage: "URL is not correct")))
             return
         }

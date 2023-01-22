@@ -19,8 +19,8 @@ struct Event: Codable {
     let presents: [Present]?
     let absents: [Absent]?
     let name, eventDescription: String?
-    let dateDebut: String?
-    let dateFin: String?
+    let date_debut: String?
+    let date_fin: String?
     let createdWhen: String?
     let createdBy: CreatedBy?
     let type, local: String?
@@ -31,8 +31,8 @@ struct Event: Codable {
         case id = "_id"
         case users, categories, presents, absents, name
         case eventDescription = "description"
-        case dateDebut = "date_debut"
-        case dateFin = "date_fin"
+        case date_debut = "date_debut"
+        case date_fin = "date_fin"
         case createdWhen = "created_when"
         case createdBy = "created_by"
         case type, local

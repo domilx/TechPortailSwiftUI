@@ -13,7 +13,7 @@ class NewsService {
     @AppStorage("token") var token: String = "null"
     
     func getHttpNews(limit: Int, completion:@escaping (News?) -> ()) {
-        guard let url = URL(string: "http://techapi-env.eba-wuyzhh27.us-east-1.elasticbeanstalk.com/portail/nouvelle?limit="+String(limit)) else { return }
+        guard let url = URL(string: "http://api-env.eba-k3tngf8v.us-east-1.elasticbeanstalk.com/portail/nouvelle?limit="+String(limit)) else { return }
         
         let headers: HTTPHeaders = [
             "Authorization": "Bearer \(token)",

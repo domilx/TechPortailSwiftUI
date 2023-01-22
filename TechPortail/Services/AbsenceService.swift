@@ -13,7 +13,7 @@ class AbsenceService {
     @AppStorage("token") var token: String = "null"
     
     func putAbsence(event: String, completion:@escaping (Bool) -> ()) {
-        guard let url = URL(string: "http://techapi-env.eba-wuyzhh27.us-east-1.elasticbeanstalk.com/portail/absence") else { return }
+        guard let url = URL(string: "http://api-env.eba-k3tngf8v.us-east-1.elasticbeanstalk.com/portail/absence") else { return }
         
         let params = Absence(event: event)
         

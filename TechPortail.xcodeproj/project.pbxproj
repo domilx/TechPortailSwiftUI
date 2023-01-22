@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		20012B5028E759930032321E /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20012B4F28E759930032321E /* HomeContentView.swift */; };
 		2012021D28F9F83100805925 /* EventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2012021C28F9F83100805925 /* EventsModel.swift */; };
+		201A1371296E105F00294DB5 /* CustomCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A1370296E105F00294DB5 /* CustomCheckBox.swift */; };
+		201A13732971DDC600294DB5 /* NewEventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A13722971DDC600294DB5 /* NewEventService.swift */; };
+		201A13752971E14C00294DB5 /* NewEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201A13742971E14C00294DB5 /* NewEventModel.swift */; };
 		20211FA228E396E200C55B5A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20211FA128E396E200C55B5A /* AuthService.swift */; };
 		202AE9792901BB7A0038D52F /* BodyContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202AE9782901BB7A0038D52F /* BodyContentView.swift */; };
-		202AE97B2901BCE60038D52F /* CalendarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202AE97A2901BCE60038D52F /* CalendarContentView.swift */; };
+		202AE97B2901BCE60038D52F /* AgendaContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202AE97A2901BCE60038D52F /* AgendaContentView.swift */; };
 		202AE97D2901DD080038D52F /* EventCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202AE97C2901DD080038D52F /* EventCardView.swift */; };
 		202FAE0028E6332E0016ACFB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202FADFF28E6332E0016ACFB /* UserModel.swift */; };
 		205DF66828ECC0D600F493A5 /* EventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205DF66728ECC0D600F493A5 /* EventService.swift */; };
@@ -24,14 +27,30 @@
 		207483D7293427AE001F309D /* AbsenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207483D6293427AE001F309D /* AbsenceService.swift */; };
 		207483D9293427E9001F309D /* AbsenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207483D8293427E9001F309D /* AbsenceModel.swift */; };
 		20C43A3328F9E18D0088D1A9 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C43A3228F9E18D0088D1A9 /* EventViewModel.swift */; };
+		20D371F1296DB8720035905C /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D371EF296DB8720035905C /* CustomSecureField.swift */; };
+		20D371F2296DB8720035905C /* CustomTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D371F0296DB8720035905C /* CustomTextfield.swift */; };
 		20DFB0BE2933FBC500E53E25 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0BD2933FBC500E53E25 /* NewsModel.swift */; };
 		20DFB0C22933FC3300E53E25 /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0C12933FC3300E53E25 /* NewsService.swift */; };
 		20DFB0C42933FCBB00E53E25 /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0C32933FCBB00E53E25 /* NewsViewModel.swift */; };
 		20DFB0C72933FF6B00E53E25 /* NewsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0C62933FF6B00E53E25 /* NewsCardView.swift */; };
 		20DFB0C92934076D00E53E25 /* PresenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0C82934076D00E53E25 /* PresenceService.swift */; };
 		20DFB0CB2934084000E53E25 /* PresenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFB0CA2934084000E53E25 /* PresenceModel.swift */; };
-		20E8E144296B43FD007DE183 /* NewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E8E143296B43FD007DE183 /* NewEvent.swift */; };
-		20F4A983290E1D1000D660E5 /* EventSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F4A982290E1D1000D660E5 /* EventSheetView.swift */; };
+		20E8E144296B43FD007DE183 /* CreateEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E8E143296B43FD007DE183 /* CreateEvent.swift */; };
+		20F4A983290E1D1000D660E5 /* EventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F4A982290E1D1000D660E5 /* EventDetailsView.swift */; };
+		20FF8FE5296DCA7700403B43 /* Oxygen-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FD7296DCA7700403B43 /* Oxygen-Regular.ttf */; };
+		20FF8FE6296DCA7700403B43 /* WorkSans-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FD8296DCA7700403B43 /* WorkSans-Regular.otf */; };
+		20FF8FE7296DCA7700403B43 /* RobotoSlab-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FD9296DCA7700403B43 /* RobotoSlab-Bold.ttf */; };
+		20FF8FE8296DCA7700403B43 /* NunitoSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FDA296DCA7700403B43 /* NunitoSans-Regular.ttf */; };
+		20FF8FE9296DCA7700403B43 /* WorkSans-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FDB296DCA7700403B43 /* WorkSans-Bold.otf */; };
+		20FF8FEA296DCA7700403B43 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FDC296DCA7700403B43 /* MavenPro-Regular.ttf */; };
+		20FF8FEB296DCA7700403B43 /* RobotoSlab-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FDD296DCA7700403B43 /* RobotoSlab-Light.ttf */; };
+		20FF8FEC296DCA7700403B43 /* WorkSans-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FDE296DCA7700403B43 /* WorkSans-Black.otf */; };
+		20FF8FED296DCA7700403B43 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FDF296DCA7700403B43 /* OpenSans-Bold.ttf */; };
+		20FF8FEE296DCA7700403B43 /* MavenPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FE0296DCA7700403B43 /* MavenPro-Medium.ttf */; };
+		20FF8FEF296DCA7700403B43 /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FE1296DCA7700403B43 /* NunitoSans-Bold.ttf */; };
+		20FF8FF0296DCA7700403B43 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FE2296DCA7700403B43 /* OpenSans-Regular.ttf */; };
+		20FF8FF1296DCA7700403B43 /* MavenPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FE3296DCA7700403B43 /* MavenPro-Bold.ttf */; };
+		20FF8FF2296DCA7700403B43 /* Oxygen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20FF8FE4296DCA7700403B43 /* Oxygen-Bold.ttf */; };
 		5B549B25100D218A8739FF92 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5498E624B5FCB4E1D39ABE /* LoginViewModel.swift */; };
 		6B793D2BCD829DAB0D641D68 /* Pods_TechPortail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78CE2BF104E9D8C1512F08F2 /* Pods_TechPortail.framework */; };
 /* End PBXBuildFile section */
@@ -39,9 +58,12 @@
 /* Begin PBXFileReference section */
 		20012B4F28E759930032321E /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
 		2012021C28F9F83100805925 /* EventsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsModel.swift; sourceTree = "<group>"; };
+		201A1370296E105F00294DB5 /* CustomCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckBox.swift; sourceTree = "<group>"; };
+		201A13722971DDC600294DB5 /* NewEventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventService.swift; sourceTree = "<group>"; };
+		201A13742971E14C00294DB5 /* NewEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEventModel.swift; sourceTree = "<group>"; };
 		20211FA128E396E200C55B5A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		202AE9782901BB7A0038D52F /* BodyContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyContentView.swift; sourceTree = "<group>"; };
-		202AE97A2901BCE60038D52F /* CalendarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarContentView.swift; sourceTree = "<group>"; };
+		202AE97A2901BCE60038D52F /* AgendaContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgendaContentView.swift; sourceTree = "<group>"; };
 		202AE97C2901DD080038D52F /* EventCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCardView.swift; sourceTree = "<group>"; };
 		202FADFF28E6332E0016ACFB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		205DF66728ECC0D600F493A5 /* EventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventService.swift; sourceTree = "<group>"; };
@@ -55,14 +77,30 @@
 		207483D6293427AE001F309D /* AbsenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbsenceService.swift; sourceTree = "<group>"; };
 		207483D8293427E9001F309D /* AbsenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbsenceModel.swift; sourceTree = "<group>"; };
 		20C43A3228F9E18D0088D1A9 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		20D371EF296DB8720035905C /* CustomSecureField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
+		20D371F0296DB8720035905C /* CustomTextfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextfield.swift; sourceTree = "<group>"; };
 		20DFB0BD2933FBC500E53E25 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		20DFB0C12933FC3300E53E25 /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
 		20DFB0C32933FCBB00E53E25 /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		20DFB0C62933FF6B00E53E25 /* NewsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCardView.swift; sourceTree = "<group>"; };
 		20DFB0C82934076D00E53E25 /* PresenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceService.swift; sourceTree = "<group>"; };
 		20DFB0CA2934084000E53E25 /* PresenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenceModel.swift; sourceTree = "<group>"; };
-		20E8E143296B43FD007DE183 /* NewEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewEvent.swift; sourceTree = "<group>"; };
-		20F4A982290E1D1000D660E5 /* EventSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSheetView.swift; sourceTree = "<group>"; };
+		20E8E143296B43FD007DE183 /* CreateEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEvent.swift; sourceTree = "<group>"; };
+		20F4A982290E1D1000D660E5 /* EventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsView.swift; sourceTree = "<group>"; };
+		20FF8FD7296DCA7700403B43 /* Oxygen-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Regular.ttf"; sourceTree = "<group>"; };
+		20FF8FD8296DCA7700403B43 /* WorkSans-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Regular.otf"; sourceTree = "<group>"; };
+		20FF8FD9296DCA7700403B43 /* RobotoSlab-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Bold.ttf"; sourceTree = "<group>"; };
+		20FF8FDA296DCA7700403B43 /* NunitoSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Regular.ttf"; sourceTree = "<group>"; };
+		20FF8FDB296DCA7700403B43 /* WorkSans-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Bold.otf"; sourceTree = "<group>"; };
+		20FF8FDC296DCA7700403B43 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Regular.ttf"; sourceTree = "<group>"; };
+		20FF8FDD296DCA7700403B43 /* RobotoSlab-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoSlab-Light.ttf"; sourceTree = "<group>"; };
+		20FF8FDE296DCA7700403B43 /* WorkSans-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WorkSans-Black.otf"; sourceTree = "<group>"; };
+		20FF8FDF296DCA7700403B43 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		20FF8FE0296DCA7700403B43 /* MavenPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Medium.ttf"; sourceTree = "<group>"; };
+		20FF8FE1296DCA7700403B43 /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
+		20FF8FE2296DCA7700403B43 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		20FF8FE3296DCA7700403B43 /* MavenPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MavenPro-Bold.ttf"; sourceTree = "<group>"; };
+		20FF8FE4296DCA7700403B43 /* Oxygen-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Oxygen-Bold.ttf"; sourceTree = "<group>"; };
 		5B5498E624B5FCB4E1D39ABE /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		78CE2BF104E9D8C1512F08F2 /* Pods_TechPortail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechPortail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D128C8558F057EFEEA46677 /* Pods-TechPortail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechPortail.release.xcconfig"; path = "Target Support Files/Pods-TechPortail/Pods-TechPortail.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				202AE97C2901DD080038D52F /* EventCardView.swift */,
-				20F4A982290E1D1000D660E5 /* EventSheetView.swift */,
+				20F4A982290E1D1000D660E5 /* EventDetailsView.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -130,14 +168,6 @@
 			path = Body;
 			sourceTree = "<group>";
 		};
-		20111348292AD1A10025FA2A /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				202AE97A2901BCE60038D52F /* CalendarContentView.swift */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
 		20211FA028E396CC00C55B5A /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +176,7 @@
 				20DFB0C12933FC3300E53E25 /* NewsService.swift */,
 				20DFB0C82934076D00E53E25 /* PresenceService.swift */,
 				207483D6293427AE001F309D /* AbsenceService.swift */,
+				201A13722971DDC600294DB5 /* NewEventService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -158,6 +189,7 @@
 				20DFB0BD2933FBC500E53E25 /* NewsModel.swift */,
 				20DFB0CA2934084000E53E25 /* PresenceModel.swift */,
 				207483D8293427E9001F309D /* AbsenceModel.swift */,
+				201A13742971E14C00294DB5 /* NewEventModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,6 +215,7 @@
 		206603CA28036E6500F4B6FB /* TechPortail */ = {
 			isa = PBXGroup;
 			children = (
+				20FF8FD6296DCA7700403B43 /* Fonts */,
 				5B549C77D1CFD7F4581774BF /* View Models */,
 				202FADFE28E633100016ACFB /* Models */,
 				20211FA028E396CC00C55B5A /* Services */,
@@ -206,9 +239,10 @@
 		2071969D28BAEED9000E3E0E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				20D371EE296DB8720035905C /* Components */,
+				20D371E9296CD6ED0035905C /* Agenda */,
 				20E8E142296B43E5007DE183 /* CreateEvent */,
 				20DFB0C52933FF4F00E53E25 /* News */,
-				20111348292AD1A10025FA2A /* Calendar */,
 				20111347292AD1980025FA2A /* Body */,
 				20111346292AD18F0025FA2A /* Settings */,
 				20111345292AD1830025FA2A /* Event */,
@@ -216,6 +250,24 @@
 				20111343292AD1520025FA2A /* Login */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		20D371E9296CD6ED0035905C /* Agenda */ = {
+			isa = PBXGroup;
+			children = (
+				202AE97A2901BCE60038D52F /* AgendaContentView.swift */,
+			);
+			path = Agenda;
+			sourceTree = "<group>";
+		};
+		20D371EE296DB8720035905C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				20D371EF296DB8720035905C /* CustomSecureField.swift */,
+				20D371F0296DB8720035905C /* CustomTextfield.swift */,
+				201A1370296E105F00294DB5 /* CustomCheckBox.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		20DFB0C52933FF4F00E53E25 /* News */ = {
@@ -229,9 +281,30 @@
 		20E8E142296B43E5007DE183 /* CreateEvent */ = {
 			isa = PBXGroup;
 			children = (
-				20E8E143296B43FD007DE183 /* NewEvent.swift */,
+				20E8E143296B43FD007DE183 /* CreateEvent.swift */,
 			);
 			path = CreateEvent;
+			sourceTree = "<group>";
+		};
+		20FF8FD6296DCA7700403B43 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				20FF8FD7296DCA7700403B43 /* Oxygen-Regular.ttf */,
+				20FF8FD8296DCA7700403B43 /* WorkSans-Regular.otf */,
+				20FF8FDA296DCA7700403B43 /* NunitoSans-Regular.ttf */,
+				20FF8FDB296DCA7700403B43 /* WorkSans-Bold.otf */,
+				20FF8FDC296DCA7700403B43 /* MavenPro-Regular.ttf */,
+				20FF8FDD296DCA7700403B43 /* RobotoSlab-Light.ttf */,
+				20FF8FD9296DCA7700403B43 /* RobotoSlab-Bold.ttf */,
+				20FF8FDE296DCA7700403B43 /* WorkSans-Black.otf */,
+				20FF8FDF296DCA7700403B43 /* OpenSans-Bold.ttf */,
+				20FF8FE0296DCA7700403B43 /* MavenPro-Medium.ttf */,
+				20FF8FE1296DCA7700403B43 /* NunitoSans-Bold.ttf */,
+				20FF8FE2296DCA7700403B43 /* OpenSans-Regular.ttf */,
+				20FF8FE3296DCA7700403B43 /* MavenPro-Bold.ttf */,
+				20FF8FE4296DCA7700403B43 /* Oxygen-Bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		5B549C77D1CFD7F4581774BF /* View Models */ = {
@@ -314,8 +387,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20FF8FED296DCA7700403B43 /* OpenSans-Bold.ttf in Resources */,
+				20FF8FE5296DCA7700403B43 /* Oxygen-Regular.ttf in Resources */,
+				20FF8FE8296DCA7700403B43 /* NunitoSans-Regular.ttf in Resources */,
+				20FF8FF2296DCA7700403B43 /* Oxygen-Bold.ttf in Resources */,
+				20FF8FF1296DCA7700403B43 /* MavenPro-Bold.ttf in Resources */,
+				20FF8FEF296DCA7700403B43 /* NunitoSans-Bold.ttf in Resources */,
+				20FF8FE7296DCA7700403B43 /* RobotoSlab-Bold.ttf in Resources */,
 				206603D328036E6800F4B6FB /* Preview Assets.xcassets in Resources */,
+				20FF8FEE296DCA7700403B43 /* MavenPro-Medium.ttf in Resources */,
+				20FF8FE9296DCA7700403B43 /* WorkSans-Bold.otf in Resources */,
+				20FF8FEB296DCA7700403B43 /* RobotoSlab-Light.ttf in Resources */,
+				20FF8FE6296DCA7700403B43 /* WorkSans-Regular.otf in Resources */,
+				20FF8FF0296DCA7700403B43 /* OpenSans-Regular.ttf in Resources */,
 				206603D028036E6800F4B6FB /* Assets.xcassets in Resources */,
+				20FF8FEA296DCA7700403B43 /* MavenPro-Regular.ttf in Resources */,
+				20FF8FEC296DCA7700403B43 /* WorkSans-Black.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,7 +457,8 @@
 				20DFB0C42933FCBB00E53E25 /* NewsViewModel.swift in Sources */,
 				20DFB0CB2934084000E53E25 /* PresenceModel.swift in Sources */,
 				20DFB0C22933FC3300E53E25 /* NewsService.swift in Sources */,
-				20F4A983290E1D1000D660E5 /* EventSheetView.swift in Sources */,
+				20F4A983290E1D1000D660E5 /* EventDetailsView.swift in Sources */,
+				201A13732971DDC600294DB5 /* NewEventService.swift in Sources */,
 				206603CE28036E6500F4B6FB /* ContentView.swift in Sources */,
 				206603CC28036E6500F4B6FB /* TechPortailApp.swift in Sources */,
 				205DF66A28ECF9C500F493A5 /* SettingsContentView.swift in Sources */,
@@ -379,17 +467,21 @@
 				20012B5028E759930032321E /* HomeContentView.swift in Sources */,
 				202FAE0028E6332E0016ACFB /* UserModel.swift in Sources */,
 				207483D7293427AE001F309D /* AbsenceService.swift in Sources */,
+				201A13752971E14C00294DB5 /* NewEventModel.swift in Sources */,
 				20DFB0BE2933FBC500E53E25 /* NewsModel.swift in Sources */,
 				202AE97D2901DD080038D52F /* EventCardView.swift in Sources */,
-				202AE97B2901BCE60038D52F /* CalendarContentView.swift in Sources */,
+				202AE97B2901BCE60038D52F /* AgendaContentView.swift in Sources */,
 				20DFB0C72933FF6B00E53E25 /* NewsCardView.swift in Sources */,
 				20211FA228E396E200C55B5A /* AuthService.swift in Sources */,
 				202AE9792901BB7A0038D52F /* BodyContentView.swift in Sources */,
 				20C43A3328F9E18D0088D1A9 /* EventViewModel.swift in Sources */,
 				2012021D28F9F83100805925 /* EventsModel.swift in Sources */,
-				20E8E144296B43FD007DE183 /* NewEvent.swift in Sources */,
+				20E8E144296B43FD007DE183 /* CreateEvent.swift in Sources */,
+				20D371F1296DB8720035905C /* CustomSecureField.swift in Sources */,
 				20DFB0C92934076D00E53E25 /* PresenceService.swift in Sources */,
+				20D371F2296DB8720035905C /* CustomTextfield.swift in Sources */,
 				5B549B25100D218A8739FF92 /* LoginViewModel.swift in Sources */,
+				201A1371296E105F00294DB5 /* CustomCheckBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,7 +612,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"TechPortail/Preview Content\"";
 				DEVELOPMENT_TEAM = K96A35TR3K;
 				ENABLE_PREVIEWS = YES;
@@ -528,6 +620,7 @@
 				INFOPLIST_FILE = "TechPortail-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tech Portail";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "We’d like to access your calendar to add relevant events";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -538,12 +631,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.domidev.TechPortail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -554,7 +650,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"TechPortail/Preview Content\"";
 				DEVELOPMENT_TEAM = K96A35TR3K;
 				ENABLE_PREVIEWS = YES;
@@ -562,6 +658,7 @@
 				INFOPLIST_FILE = "TechPortail-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tech Portail";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "We’d like to access your calendar to add relevant events";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -572,12 +669,15 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = net.domidev.TechPortail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

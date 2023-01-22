@@ -15,6 +15,8 @@ class LoginViewModel: ObservableObject {
     @AppStorage("userId") var userId: String = "null"
     @AppStorage("isLoggedIn") var loggedIn: Bool = false
     @AppStorage("isMentor") var isMentor: Bool = false
+    @AppStorage("email") var userEmail: String = "null"
+    @AppStorage("pass") var pass: String = "null"
 
     func login(completion: @escaping (Binding<Bool>) -> Void) {
 
@@ -22,10 +24,22 @@ class LoginViewModel: ObservableObject {
             switch result {
             case .success(_):
                 completion(.constant(false))
+                self.userEmail = self.email
+                self.pass = self.password
             case .failure(let error):
                 print(error.localizedDescription)
                 completion(.constant(true))
             }
+        }
+    }
+    
+    func isHasLogged(completion: @escaping (Binding<Bool>) -> Void) {
+        if (userEmail != "null" && pass != "null") {
+            self.email = self.userEmail
+            self.password = self.pass
+            self.login(completion: { bool in
+                completion(bool)
+            })
         }
     }
 
@@ -36,6 +50,8 @@ class LoginViewModel: ObservableObject {
         self.userName = "null"
         self.userId = "null"
         self.userName = "null"
+        self.userEmail = "null"
+        self.pass = "null"
 
     }
 }

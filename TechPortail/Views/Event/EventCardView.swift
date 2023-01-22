@@ -15,67 +15,120 @@ struct EventCardView: View {
     var types: [String]
     var id: String
     var presences: [Present]?
-    var absences: [Absent]?
+    var absences: [Absent]
     
+    @AppStorage("userId") var userId: String = "null"
+
+    @State private var isPresent = false
+    @State private var hasRegistered = false
+    @State private var color: Color = Color.green
     @State private var showingSheet = false
     
     var body: some View {
         
         let dateBegin: Date? = returnDate(date: dateRawBegin)
         let dateEnd: Date? = returnDate(date: dateRawEnd)
-        VStack{
-            HStack( spacing: 6) {
-                Text(title)
-                    .fontWeight(.bold)
-                Spacer()
-                Capsule(style: .continuous)
-                    .foregroundColor(Color(.secondaryLabel))
-                    .frame(width: 60, height: 30)
-                    .clipped()
-                    .overlay{
-                        Text(types.first ?? "nil")
+        HStack(alignment: .top, spacing: 5) {
+            VStack(alignment: .leading, spacing: 5) {
+                HStack{
+                    Text(title)
+                        .font(.headline)
+                        .foregroundColor(.primary)
+                        .multilineTextAlignment(.leading)
+                    .onAppear {
+                      for presence in presences! {
+                        if presence.user?.id! == userId {
+                          self.isPresent = true
+                          self.hasRegistered = true
+                        }
+                      }
+                      for absence in absences {
+                        if absence.user?.id == userId {
+                          self.isPresent = false
+                          self.hasRegistered = true
+                        }
+                      }
                     }
-            }
-            Divider()
-            HStack{
+                    Spacer()
+                    Text(dateBegin?.formatted() ?? "nil").foregroundColor(.secondary)
+                    Image(systemName: "chevron.right").foregroundColor(.secondary)
+                }
                 Text(description)
-                Spacer()
+                    .font(.footnote)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.leading)
+                ZStack(alignment: Alignment(horizontal: .leading, vertical: .center)) {
+                    Badge(text: "\(presences!.count)", imageName: "person.fill")
+                        .foregroundColor(.teal)
+                    
+                    if(isPresent){
+                        Badge(text: "Present", imageName: "person.fill.checkmark")
+                            .padding(.leading, 75)
+                            .foregroundColor(.green)
+                    }
+                    if(!isPresent && hasRegistered){
+                        Badge(text: "Absent", imageName: "person.fill.xmark")
+                            .padding(.leading, 75)
+                            .foregroundColor(.red)
+                    }
+                    if(!isPresent && !hasRegistered){
+                        Badge(text: "Not registered", imageName: "person.fill.questionmark")
+                            .padding(.leading, 75)
+                            .foregroundColor(Color("yellow"))
+                    }
+                    
+                    HStack{
+                        Image(systemName: "gear")
+                        ForEach(types, id: \.self) { type in
+                            Text(type)
+                        }
+                    }
+                    .onAppear{
+                        if(types.count == 2){
+                            color = Color.orange
+                        }
+                        else if(types.contains("FRC") && types.count == 1){
+                            color = Color.purple
+                        }
+                        else if(types.contains("FTC") && types.count == 1){
+                            color = Color.mint
+                        }
+                    }
+                    .foregroundColor(color)
+                    .padding(.leading, 225)
+                }
+                .font(.callout)
+                
             }
-            HStack{
-                Spacer()
-                Text("See details").underline(true)
-                Image(systemName: "arrow.right.circle.fill")
-            }
         }
-        .font(.body.weight(.medium))
-        .foregroundColor(Color(UIColor.white))
-        .padding(.vertical, 16)
-        .padding(.horizontal, 20)
-        .frame(maxWidth: .infinity)
-        .clipped()
-        .background {
-            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                .fill( Color(.displayP3, red: 28/255, green: 131/255, blue: 119/255))
-                .addBorder(Color(.displayP3, red: 136/255, green: 184/255, blue: 177/255), width: 5, cornerRadius: 15)
-                //.stroke(Color(.displayP3, red: 136/255, green: 184/255, blue: 177/255), lineWidth: 4)
-            
-        }
-        .onTapGesture {
-            showingSheet.toggle()
-        }
-        .sheet(isPresented: $showingSheet) {
-            EventSheetView(title: title, description: description, dateBegin: dateBegin!, dateEnd: dateEnd!, dateRawBegin: dateRawBegin, dateRawEnd: dateRawEnd, types: types, id: id, presences: presences, absences: absences!)
-                .presentationDetents([.height(400), .large])
-                .presentationDragIndicator(.automatic)
+        .padding(.top, 16.0)
+    }
+}
+struct Badge: View {
+    let text: String
+    let imageName: String
+    
+    var body: some View {
+        HStack {
+            Image(systemName: imageName)
+            Text(text)
         }
     }
 }
 
-extension View {
-    public func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S : ShapeStyle {
-        let roundedRect = RoundedRectangle(cornerRadius: cornerRadius)
-        return clipShape(roundedRect)
-             .overlay(roundedRect.strokeBorder(content, lineWidth: width))
+struct Position: View {
+    let position: Image
+    
+    var body: some View {
+        ZStack {
+            Circle()
+                .frame(width: 32.0, height: 32.0)
+                .foregroundColor(.teal)
+            Text("\(position)")
+                .font(.callout)
+                .bold()
+                .foregroundColor(.white)
+        }
     }
 }
 
@@ -85,3 +138,5 @@ func returnDate(date: String) -> Date? {
     return formatter.date(from: date)
     
 }
+
+

@@ -22,24 +22,40 @@ struct HomeView: View {
     @StateObject var eventViewModel = EventViewModel()
     @StateObject var newsViewModel = NewsViewModel()
     
+    @AppStorage("isMentor") var isMentor: Bool = false
+    @AppStorage("userId") var userId: String = "null"
+
+    @State private var showingSheet = false
+    
 
     var body: some View {
+            HStack {
+                Text("Tech Portail")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .padding()
+                    .onAppear() {
+                        eventViewModel.fetchEventsList(isFuture: true, limit: 4)
+                        newsViewModel.fetchNewsList()
+                    }
+                Spacer()
+                if(isMentor){
+                    Button {
+                        showingSheet.toggle()
+                    } label: {
+                        Text("New event")
+                        Image(systemName: "plus")
+                    }
+                    .padding()
+                    .font(.headline)
+                    .fontWeight(.medium)
+                }
+            }.padding(.top, 10)
+            Divider().padding(.horizontal)
         ScrollView{
             VStack{
                 HStack {
-                    Text("TechPortail")
-                        .font(.largeTitle)
-                        .fontWeight(.heavy)
-                        .padding()
-                        .onAppear() {
-                            eventViewModel.fetchEventsList(isFuture: false, limit: 1)
-                            newsViewModel.fetchNewsList()
-                        }
-                    Spacer()
-                }
-                Divider().padding(.horizontal)
-                HStack {
-                    Text("Hot Events")
+                    Text("Upcoming Events")
                         .font(.title2)
                         .fontWeight(.bold)
                     Spacer()
@@ -52,9 +68,17 @@ struct HomeView: View {
                             .foregroundColor(Color.gray)
                     } else {
                         ForEach(eventViewModel.events?.events ?? [], id: \.id) { event in
-                            EventCardView(title: event.name ?? "nil", description: event.eventDescription ?? "nil", dateRawBegin: event.dateDebut ?? "nil", dateRawEnd: event.dateFin ?? "nil", types: event.categories ?? [String](), id: event.id ?? "nil", presences: event.presents, absences: event.absents  ?? [Absent]())
-                                .padding(.horizontal)
-                                .padding(.vertical, 5)
+                            HStack{
+                                NavigationLink(destination: EventDetailsView(title: event.name ?? "nil", description: event.eventDescription ?? "nil", dateRawBegin: event.date_debut ?? "nil", dateRawEnd: event.date_fin ?? "nil", types: event.categories ?? [String](), id: event.id ?? "nil", presences: event.presents ?? [Present](), absences: event.absents ?? [Absent]())) {
+                                    EventCardView(title: event.name ?? "nil", description: event.eventDescription ?? "nil", dateRawBegin: event.date_debut ?? "nil", dateRawEnd: event.date_fin ?? "nil", types: event.categories ?? [String](), id: event.id ?? "nil", presences: event.presents, absences: event.absents ?? [Absent]())
+                                        .padding(.horizontal)
+                                        .padding(.vertical, 5)
+                                }
+                                Spacer()
+                            }
+                            
+                            Divider().padding(.horizontal)
+                            
                         }
                     }
                 
@@ -72,6 +96,11 @@ struct HomeView: View {
                 Spacer()
             }
             
+        }
+        .sheet(isPresented: $showingSheet) {
+            CreateEvent(showModal: $showingSheet)
+                .presentationDetents([.large])
+                .presentationDragIndicator(.automatic)
         }
     }
 }

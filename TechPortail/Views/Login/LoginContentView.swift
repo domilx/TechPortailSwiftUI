@@ -11,118 +11,110 @@ struct LoginContentView: View {
 
     @StateObject private var LoginSystem = LoginViewModel()
     @State private var didFail = false
-    let alertTitle: String = "Login failed."
-    
+    @State private var forgot = false
+        
     var body: some View {
-
-        VStack {
-            Image("robotImage")
-                .renderingMode(.original)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 360, height: 350)
-                .clipped()
-                .overlay{
-                    VStack{
-                        HStack(alignment: .firstTextBaseline, spacing: 6) {
-                            Text("TechPortail")
-                                .font(.largeTitle)
-                                .fontWeight(.heavy)
-                                .foregroundColor(.yellow)
-                        }
-                        .font(.body.weight(.medium))
-                        .padding(.vertical, 16)
-                        .frame(maxWidth: .infinity)
-                        .clipped()
-                        .foregroundColor(Color(.gray))
-                        .background {
-                            RoundedRectangle(cornerRadius: 10, style: .continuous)
-                                .fill(.gray.opacity(0.5))
-                        }
-                        Spacer()
-                    }
-                }
-
-                .mask {
-                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-                }
-                .shadow(color: Color(.sRGBLinear, red: 0/255, green: 0/255, blue: 0/255).opacity(0.15), radius: 18, x: 0, y: 14)
-            HStack{
-                Text("Connexion")
-                    .font(.largeTitle)
-                    .fontWeight(.heavy)
-                    .multilineTextAlignment(.leading)
-                Spacer()
+        VStack{
+            
+            // Welcome
+            VStack(spacing:15){
+                Text("Tech Portail")
+                    .modifier(CustomTextM(fontName: "RobotoSlab-Bold", fontSize: 42, fontColor: Color("yellow")))
+                Text("Please sign in to continue.")
+                    .modifier(CustomTextM(fontName: "RobotoSlab-Light", fontSize: 18, fontColor: Color.primary))
+                    .padding(.bottom, 10)
             }
-            .padding()
-            VStack(spacing: 10) {
-                HStack(alignment: .firstTextBaseline) {
-                    HStack {
-                        Image(systemName: "envelope.fill")
-                            .imageScale(.medium)
-                        TextField("Email", text: $LoginSystem.email)
-                        Spacer()
+            .padding(.top,45)
+            Spacer()
+            
+            // Form
+            VStack(spacing: 15){
+                VStack(alignment: .center, spacing: 30){
+                    VStack(alignment: .center) {
+                        CustomTextfield(placeholder:
+                                            Text("Email"),
+                                        fontName: "RobotoSlab-Light",
+                                        fontSize: 18,
+                                        fontColor: Color.gray,
+                                        username: $LoginSystem.email, isEmpty: true)
+                        Divider()
+                            .background(Color.gray)
                     }
-                    .offset(x: 20, y: 0)
-                }
-                .font(.body.weight(.medium))
-                .padding(.vertical, 16)
-                .frame(maxWidth: .infinity)
-                .clipped()
-                .foregroundColor(Color(.displayP3, red: 244/255, green: 188/255, blue: 73/255))
-                .background {
-                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .stroke(.clear.opacity(0.25), lineWidth: 0)
-                    .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(.yellow.opacity(0.1)))
-                }
-                HStack(alignment: .firstTextBaseline) {
-                    HStack {
-                        Image(systemName: "key")
-                            .imageScale(.medium)
-                        SecureField("Password", text:$LoginSystem.password)
-                        Spacer()
-                    }
-                    .offset(x: 20, y: 0)
-                }
-                .font(.body.weight(.medium))
-                .padding(.vertical, 16)
-                .frame(maxWidth: .infinity)
-                .clipped()
-                .foregroundColor(Color(.displayP3, red: 244/255, green: 188/255, blue: 73/255))
-                .background {
-                    RoundedRectangle(cornerRadius: 10, style: .continuous)
-                    .stroke(.clear.opacity(0.25), lineWidth: 0)
-                    .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(.yellow.opacity(0.1)))
-                }
-                Button(action: {LoginSystem.login(completion: { bool in
-                    self.didFail = bool.wrappedValue
-                })}){
-                    HStack(alignment: .firstTextBaseline, spacing: 6) {
-                        Text("Sign in")
-                    }
-                    .font(.body.weight(.medium))
-                    .padding(.vertical, 16)
-                    .frame(maxWidth: .infinity)
-                    .clipped()
-                    .foregroundColor(Color(.systemBackground))
-                    .background {
-                        RoundedRectangle(cornerRadius: 10, style: .continuous)
-                            .fill(Color(UIColor.label))
+                    VStack(alignment: .center) {
+                        CustomSecureField(placeholder:
+                                            Text("Password"),
+                                          fontName: "RobotoSlab-Light",
+                                          fontSize: 18,
+                                          fontColor: Color.gray,
+                                          password: $LoginSystem.password, isEmpty: true)
+                        Divider()
+                            .background(Color.gray)
                     }
                 }
+                HStack{
+                    Spacer()
+                    Button(action: {
+                        self.forgot = true
+                    }){
+                        Text("Forgot Pass?")
+                            .modifier(CustomTextM(fontName: "RobotoSlab-Light", fontSize: 14, fontColor: Color.gray))
+                    }.alert(isPresented: $forgot){
+                        Alert(
+                            title: Text("Oops.."),
+                            message: Text("If you are facing issues with your account, please speak with a mentor")
+                        )
+                    }
+                    
+                }
+            }
+            .padding(.horizontal,35)
+            
+            //Button
+            HStack{
+                Button(action: {
+                    LoginSystem.login(completion: { bool in
+                        self.didFail = bool.wrappedValue
+                    })
+                }, label: {
+                    ZStack{
+                        Capsule()
+                            .foregroundColor(Color("yellow"))
+                            .frame(width: 120, height: 60)
+                        HStack{
+                            Text("Enter")
+                                .modifier(CustomTextM(fontName: "RobotoSlab-Bold", fontSize: 17, fontColor: Color.white))
+                            Image(systemName: "arrow.right")
+                                .font(.title)
+                                .foregroundColor(Color.white)
+                        }
+                        
+                    }
+                })
                 .alert(isPresented: $didFail) {
                         Alert(
                             title: Text("Authentication Error"),
                             message: Text("Please try again with different credentials or at another time")
                         )
-                    }
-            }
-            .padding(.horizontal)
+                    
+                }
+                .padding(.top,35)
+            }.padding(.horizontal,35)
+            
+            Spacer()
+                .frame(height: 400)
         }
-        Text("Made By Domenico & Raphaël")
-            .foregroundColor(.secondary)
-            .padding()
-            .font(.footnote.weight(.medium))
+    }
+}
+
+struct CustomTextM: ViewModifier {
+    let fontName: String
+    let fontSize: CGFloat
+    let fontColor: Color
+    
+    func body(content: Content) -> some View {
+        content
+            .font(.custom(fontName, size: fontSize))
+            .foregroundColor(fontColor)
     }
 }
 

@@ -13,7 +13,7 @@ class PresenceService {
     @AppStorage("token") var token: String = "null"
     
     func putPresence(debut: String, fin: String, event: String, completion:@escaping (Bool) -> ()) {
-        guard let url = URL(string: "http://techapi-env.eba-wuyzhh27.us-east-1.elasticbeanstalk.com/portail/presence") else { return }
+        guard let url = URL(string: "http://api-env.eba-k3tngf8v.us-east-1.elasticbeanstalk.com/portail/presence") else { return }
         
         let params = Presence(debut: debut, fin: fin, event: event)
         

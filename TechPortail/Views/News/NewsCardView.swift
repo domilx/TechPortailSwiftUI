@@ -4,7 +4,6 @@
 //
 //  Created by Domenico Valentino on 2022-11-27.
 //
-
 import SwiftUI
 
 struct NewsCardView: View {
@@ -41,6 +40,14 @@ struct NewsCardView: View {
                 //.stroke(Color(.displayP3, red: 136/255, green: 184/255, blue: 177/255), lineWidth: 4)
             
         }
+    }
+}
+
+extension View {
+    public func addBorder<S>(_ content: S, width: CGFloat = 1, cornerRadius: CGFloat) -> some View where S : ShapeStyle {
+        let roundedRect = RoundedRectangle(cornerRadius: cornerRadius)
+        return clipShape(roundedRect)
+             .overlay(roundedRect.strokeBorder(content, lineWidth: width))
     }
 }
 
